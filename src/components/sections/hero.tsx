@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { assetPath } from "@/lib/utils";
 
 export function Hero() {
   return (
@@ -38,7 +39,7 @@ export function Hero() {
           <div className="flex-shrink-0">
             <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-border shadow-lg bg-muted">
               <Image
-                src="/images/profile-placeholder.png"
+                src={assetPath("/images/profile-placeholder.png")}
                 alt="Abubacker A K profile photo"
                 width={208}
                 height={208}
