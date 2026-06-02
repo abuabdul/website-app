@@ -3,50 +3,50 @@ import type { Hobby } from "@/types";
 export const hobbies: Hobby[] = [
   {
     id: "hob-1",
+    name: "AI & Emerging Tech Exploration",
+    description:
+      "I'm deeply invested in the AI revolution — experimenting with LangChain, Flowise, Agentic AI, and OpenAI APIs to build intelligent applications. I believe AI will fundamentally reshape how we architect software, and I want to be at the forefront of that shift.",
+    iconName: "BrainCircuit",
+    tags: ["tech", "AI", "learning"],
+  },
+  {
+    id: "hob-2",
     name: "Open Source Contributing",
     description:
-      "I enjoy giving back to the developer community by contributing to open-source projects — from fixing bugs and writing docs to building new features. It's a great way to learn from world-class engineers.",
+      "Actively contributing to open-source projects on GitHub. Whether it's fixing bugs, improving documentation, or building new features — giving back to the community that helped me grow is something I take seriously.",
     iconName: "GitFork",
     tags: ["tech", "community"],
   },
   {
-    id: "hob-2",
-    name: "Technical Writing & Blogging",
-    description:
-      "I write about software architecture, engineering leadership, and lessons learned in the trenches. Explaining things clearly is one of the hardest and most rewarding skills to develop.",
-    iconName: "PenLine",
-    tags: ["creative", "tech"],
-  },
-  {
     id: "hob-3",
-    name: "Running",
+    name: "Tech Speaking & Knowledge Sharing",
     description:
-      "Running gives me space to think and decompress after deep focus work. I've completed several half-marathons and enjoy early morning runs before the day begins.",
-    iconName: "PersonStanding",
-    tags: ["outdoor", "fitness"],
+      "I've presented at Java User Group (JUG) meetups on emerging technologies. Explaining complex ideas clearly to an audience is one of the most effective ways to solidify your own understanding — and hopefully spark someone else's curiosity.",
+    iconName: "Mic2",
+    tags: ["community", "leadership"],
   },
   {
     id: "hob-4",
-    name: "Reading",
+    name: "Engineering Mentorship",
     description:
-      "My reading spans technology, business strategy, philosophy, and history. Current shelf includes Clean Architecture, The Pragmatic Programmer, and Thinking, Fast and Slow.",
-    iconName: "BookOpen",
-    tags: ["learning"],
+      "Having led and mentored teams of up to 20 engineers, mentorship is a passion that bleeds into my personal time. I enjoy helping developers navigate career decisions, code quality, and the mindset shift that comes with moving into senior roles.",
+    iconName: "Users",
+    tags: ["leadership", "community"],
   },
   {
     id: "hob-5",
-    name: "Cooking",
+    name: "Reading & Continuous Learning",
     description:
-      "Cooking is creative problem solving with tastier results than debugging. I love experimenting with cuisines from around the world and hosting dinner parties.",
-    iconName: "UtensilsCrossed",
-    tags: ["creative", "social"],
+      "My reading spans software architecture, cloud computing, business strategy, and biographies of builders. Currently deep-diving into AI/ML literature and distributed systems design. Learning every day is non-negotiable.",
+    iconName: "BookOpen",
+    tags: ["learning", "personal"],
   },
   {
     id: "hob-6",
-    name: "Mentoring",
+    name: "Building Side Projects",
     description:
-      "I volunteer time mentoring junior developers through online platforms and local tech communities. Watching someone go from confused to confident is incredibly fulfilling.",
-    iconName: "Users",
-    tags: ["community", "tech"],
+      "I'm a builder at heart. From CineaCloud to Memoa, I've always had something in progress outside of day-job hours. Side projects are where I take the most risks, learn the fastest, and have the most fun.",
+    iconName: "Rocket",
+    tags: ["tech", "creative"],
   },
 ];

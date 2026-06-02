@@ -7,16 +7,19 @@ export function AboutSummary() {
       <SectionHeader eyebrow="About Me" title="A bit about who I am" />
       <div className="max-w-3xl space-y-4 text-text-muted leading-relaxed">
         <p>
-          I&apos;m a full-stack software engineer with over a decade of experience building
-          production systems across fintech, digital agencies, and enterprise software. I started my
-          career writing Java and AngularJS, and have since worked across the stack with TypeScript,
-          React, Node.js, and AWS. These days I spend as much time thinking about architecture and
-          engineering culture as I do writing code.
+          I&apos;m a Senior Software Engineer based in Derby, UK with 10+ years of experience
+          building scalable enterprise applications and cloud-native systems. I&apos;ve worked
+          across the full stack — Java/Spring Boot and Node.js/NestJS on the backend, React and
+          Next.js on the frontend — delivering production systems at companies including CHEP,
+          Boston Consulting Group, Canto, MarketAxess, and Trafigura.
         </p>
         <p>
-          My goal is to move into an enterprise architect or director of engineering role — combining
-          technical depth with strategic thinking to help organisations build systems that scale in
-          every sense of the word: technically, organisationally, and commercially.
+          I&apos;m an expert in Infrastructure as Code (Terraform), DevOps automation, and
+          microservices architecture on AWS. More recently I&apos;ve been deeply excited by
+          AI-driven development — working with Generative AI, LangChain, OpenAI/GPT-4, and
+          Agentic AI to build the next generation of intelligent applications. I&apos;m passionate
+          about bridging deep technical expertise with strategic thinking to help organisations
+          build systems that scale.
         </p>
       </div>
       <Link

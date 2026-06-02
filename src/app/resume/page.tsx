@@ -9,7 +9,7 @@ import { resumeData } from "@/content/resume";
 export const metadata: Metadata = {
   title: "Resume",
   description:
-    "Work experience, education, and skills of Abu Abdul — software engineer and aspiring enterprise architect.",
+    "Work experience, education, and skills of Abubacker A K — Senior Software Engineer specialising in Java, Node.js, React, AWS, and Generative AI.",
 };
 
 export default function ResumePage() {
@@ -26,7 +26,7 @@ export default function ResumePage() {
         </div>
         <a
           href={pdfUrl}
-          download="Abu_Abdul_Resume.pdf"
+          download="Abubacker_AK_Resume.pdf"
           className="flex-shrink-0 inline-flex items-center gap-2 rounded-lg font-medium transition-colors bg-primary text-white hover:bg-primary/90 h-10 px-5 text-sm"
         >
           <Download size={15} />

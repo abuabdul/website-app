@@ -27,7 +27,7 @@ export function Navbar() {
     <header className="sticky top-0 z-50 bg-surface/95 backdrop-blur border-b border-border">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="font-bold text-lg text-primary hover:text-accent transition-colors">
-          Abu Abdul
+          Abubacker A K
         </Link>
 
         {/* Desktop links */}

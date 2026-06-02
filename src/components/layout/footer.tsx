@@ -1,9 +1,9 @@
 import { GitFork, Briefcase, Mail } from "lucide-react";
 
 const socials = [
-  { icon: GitFork, href: "https://github.com", label: "GitHub" },
-  { icon: Briefcase, href: "https://linkedin.com", label: "LinkedIn" },
-  { icon: Mail, href: "mailto:your@email.com", label: "Email" },
+  { icon: GitFork, href: "https://github.com/abuabdul", label: "GitHub" },
+  { icon: Briefcase, href: "https://linkedin.com/in/abubackersiddik", label: "LinkedIn" },
+  { icon: Mail, href: "mailto:abuabdul86@hotmail.com", label: "Email" },
 ];
 
 export function Footer() {
@@ -11,7 +11,7 @@ export function Footer() {
     <footer className="border-t border-border bg-surface mt-auto">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
         <p className="text-sm text-text-muted">
-          © {new Date().getFullYear()} — Built with Next.js &amp; Tailwind CSS
+          © {new Date().getFullYear()} Abubacker A K — Built with Next.js &amp; Tailwind CSS
         </p>
         <div className="flex items-center gap-4">
           {socials.map(({ icon: Icon, href, label }) => (

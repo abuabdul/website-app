@@ -9,14 +9,14 @@ export function Hero() {
           {/* Text */}
           <div className="flex-1 text-center md:text-left">
             <p className="text-sm font-semibold uppercase tracking-widest text-accent mb-3">
-              Software Engineer · Full-Stack · Architect
+              Senior Software Engineer · Full-Stack · Cloud · AI
             </p>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-primary leading-tight">
-              Abu Abdul
+              Abubacker A K
             </h1>
             <p className="mt-4 text-lg sm:text-xl text-text-muted max-w-xl">
-              I build scalable systems, lead engineering teams, and share what I learn along the way.
-              Aspiring enterprise architect and director of engineering.
+              10+ years building scalable enterprise systems with Java, Node.js, React, and AWS.
+              Now bridging full-stack engineering with Generative AI and cloud architecture.
             </p>
             <div className="mt-8 flex flex-wrap gap-3 justify-center md:justify-start">
               <Link
@@ -39,7 +39,7 @@ export function Hero() {
             <div className="w-40 h-40 sm:w-52 sm:h-52 rounded-full overflow-hidden border-4 border-border shadow-lg bg-muted">
               <Image
                 src="/images/profile-placeholder.png"
-                alt="Abu Abdul profile photo"
+                alt="Abubacker A K profile photo"
                 width={208}
                 height={208}
                 className="object-cover w-full h-full"

@@ -16,15 +16,15 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    template: "%s | Abu Abdul",
-    default: "Abu Abdul — Software Engineer & Architect",
+    template: "%s | Abubacker A K",
+    default: "Abubacker A K — Senior Software Engineer",
   },
   description:
-    "Personal portfolio, blog, and CV of Abu Abdul — a full-stack software engineer aspiring to enterprise architect and director of engineering roles.",
+    "Portfolio, blog, and CV of Abubacker A K — Senior Software Engineer with 10+ years building scalable Java, Node.js, React, and AWS systems, now expanding into Generative AI.",
   openGraph: {
     type: "website",
     locale: "en_GB",
-    siteName: "Abu Abdul",
+    siteName: "Abubacker A K",
   },
 };
 

@@ -6,30 +6,30 @@ import { Card } from "@/components/ui/card";
 
 export const metadata: Metadata = {
   title: "Contact",
-  description: "Get in touch with Abu Abdul.",
+  description: "Get in touch with Abubacker A K.",
 };
 
 const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "your@email.com",
-    href: "mailto:your@email.com",
-    description: "Best for detailed questions, collaboration ideas, or just saying hello.",
+    value: "abuabdul86@hotmail.com",
+    href: "mailto:abuabdul86@hotmail.com",
+    description: "Best for detailed questions, collaboration ideas, opportunities, or just saying hello.",
   },
   {
     icon: Briefcase,
     label: "LinkedIn",
-    value: "linkedin.com/in/yourprofile",
-    href: "https://linkedin.com",
-    description: "Connect professionally — I'm open to interesting opportunities and conversations.",
+    value: "linkedin.com/in/abubackersiddik",
+    href: "https://linkedin.com/in/abubackersiddik",
+    description: "Connect professionally — I'm open to interesting roles, consulting opportunities, and conversations.",
   },
   {
     icon: GitFork,
     label: "GitHub",
-    value: "github.com/yourusername",
-    href: "https://github.com",
-    description: "See what I'm building, follow my open-source contributions, and raise issues.",
+    value: "github.com/abuabdul",
+    href: "https://github.com/abuabdul",
+    description: "Browse my open-source work, side projects, and contributions to the developer community.",
   },
 ];
 
@@ -69,9 +69,10 @@ export default function ContactPage() {
       <div className="bg-muted border border-border rounded-xl p-8 max-w-xl">
         <h2 className="text-lg font-semibold text-primary mb-2">Open to opportunities</h2>
         <p className="text-text-muted text-sm leading-relaxed">
-          I&apos;m currently open to senior engineering, principal engineer, and architect roles —
-          particularly in companies working on complex distributed systems, platform engineering, or
-          building engineering culture at scale. If that sounds like you, reach out.
+          I&apos;m open to Senior Engineer, Principal Engineer, Solutions Architect, and Director of
+          Engineering roles — particularly in companies working on AI-driven systems, cloud-native
+          platforms, or complex distributed architecture. Based in Derby, UK. If that sounds like
+          you, I&apos;d love to hear from you.
         </p>
       </div>
     </PageWrapper>
