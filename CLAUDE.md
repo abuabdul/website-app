@@ -4,18 +4,18 @@
 Personal portfolio website for a software/full-stack engineer targeting enterprise architect and director of engineering roles. Serves as CV, project showcase, blog, achievements/certifications portal, hobbies page, and contact hub.
 
 ## Tech Stack
-- **Framework**: Next.js 14+ (App Router, static export)
+- **Framework**: Next.js 16+ (App Router)
 - **Language**: TypeScript (strict mode)
-- **Styling**: Tailwind CSS v3 with custom design tokens
+- **Styling**: Tailwind CSS v4 (CSS-first config via `@theme` in globals.css)
 - **Blog**: MDX via `next-mdx-remote` with `gray-matter` for frontmatter
 - **Icons**: `lucide-react`
-- **Fonts**: `next/font/google` (Inter for body, Playfair Display for headings)
+- **Fonts**: `next/font/google` (Geist Sans for body, Geist Mono for code)
 - **Linting**: ESLint with Next.js config + Prettier
 - **Type checking**: TypeScript strict
 
 ## Key npm Commands
 - `npm run dev` — start local dev server (localhost:3000)
-- `npm run build` — production build (static export to /out)
+- `npm run build` — production build
 - `npm run start` — serve the production build locally
 - `npm run lint` — run ESLint
 - `npm run type-check` — run `tsc --noEmit`
@@ -26,6 +26,7 @@ Personal portfolio website for a software/full-stack engineer targeting enterpri
 src/
   app/                  # Next.js App Router pages and layouts
     layout.tsx          # Root layout (fonts, metadata, Navbar/Footer)
+    globals.css         # Tailwind v4 config (@theme), design tokens, base styles
     page.tsx            # Home (Hero + About + Featured Projects + Latest Posts)
     resume/page.tsx
     projects/page.tsx
@@ -59,30 +60,27 @@ public/
 ```
 
 ## Architecture Decisions
-- **Static Site Generation**: `output: 'export'` in `next.config.ts` — no server runtime needed.
+- **App Router with RSC**: All data fetching happens server-side; client components only for interactive UI (tag filters, mobile nav).
 - **No API routes**: Fully static. All data lives in `src/content/`.
 - **No CMS**: Structured TypeScript objects + MDX files are the data layer.
-- **Image optimization**: `next/image` with `unoptimized: true` for static export.
-- **Tailwind config**: All design tokens defined in `tailwind.config.ts` — avoid arbitrary inline values.
+- **Image optimization**: `next/image` with `unoptimized: true`.
+- **Tailwind v4**: Design tokens defined in `globals.css` using `@theme {}` — no `tailwind.config.ts` needed.
 
-## Design System
+## Design System (Tailwind v4 CSS variables)
 
-### Color Palette
+All tokens are defined in `src/app/globals.css` inside `@theme {}`:
+
 | Token | Value | Use |
 |---|---|---|
-| primary | `#1E3A5F` | Headings, key UI elements |
-| accent | `#2563EB` | Links, CTAs, hover states |
-| surface | `#FFFFFF` | Page background |
-| muted | `#F8FAFC` | Alternate section backgrounds |
-| border | `#E2E8F0` | Dividers, card borders |
-| text | `#0F172A` | Primary text |
-| textMuted | `#64748B` | Secondary/meta text |
+| `--color-primary` | `#1E3A5F` | Headings, key UI elements |
+| `--color-accent` | `#2563EB` | Links, CTAs, hover states |
+| `--color-surface` | `#FFFFFF` | Page background |
+| `--color-muted` | `#F8FAFC` | Alternate section backgrounds |
+| `--color-border` | `#E2E8F0` | Dividers, card borders |
+| `--color-text` | `#0F172A` | Primary text |
+| `--color-text-muted` | `#64748B` | Secondary/meta text |
 
-### Typography
-- Body: Inter (system-ui fallback)
-- Headings: Playfair Display
-- Code: JetBrains Mono
-- Base size: 16px; scale: Tailwind default
+Use in Tailwind: `bg-primary`, `text-accent`, `border-border`, etc.
 
 ### Spacing
 - Section vertical padding: `py-20` (desktop), `py-12` (mobile)
@@ -95,6 +93,7 @@ public/
 - `src/components/sections/` — page-specific, may import from `src/content/`.
 - File naming: `kebab-case` files, `PascalCase` component names.
 - Utility/hook files: named exports only. Page files: default export (Next.js requirement).
+- Mark components `"use client"` only when they need `useState`, `useEffect`, `usePathname`, etc.
 
 ## How to Add a Blog Post
 1. Create `src/content/blog/my-post-title.mdx`
@@ -123,7 +122,6 @@ public/
 3. Use `type: "certification"` for cloud/tech certs, `"award"` for recognition, `"milestone"` for career milestones
 
 ## Deployment
-- `npm run build` → static output in `/out`
-- **Vercel**: import repo, set framework to Next.js — handles `output: 'export'` automatically
-- **GitHub Pages**: push `/out` contents to `gh-pages` branch
+- `npm run build` → deploy the `.next` folder to Vercel
+- **Vercel**: import repo, set framework to Next.js — zero config needed
 - Replace `public/resume.pdf` and `public/images/profile-placeholder.png` with real files before deploying
