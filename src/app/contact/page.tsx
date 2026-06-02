@@ -3,20 +3,14 @@ import { GitFork, Briefcase, Mail, ExternalLink } from "lucide-react";
 import { PageWrapper } from "@/components/layout/page-wrapper";
 import { SectionHeader } from "@/components/ui/section-header";
 import { Card } from "@/components/ui/card";
+import { ObfuscatedEmail } from "@/components/ui/obfuscated-email";
 
 export const metadata: Metadata = {
   title: "Contact",
   description: "Get in touch with Abubacker A K.",
 };
 
-const contactLinks = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "abuabdul86@hotmail.com",
-    href: "mailto:abuabdul86@hotmail.com",
-    description: "Best for detailed questions, collaboration ideas, opportunities, or just saying hello.",
-  },
+const otherLinks = [
   {
     icon: Briefcase,
     label: "LinkedIn",
@@ -43,12 +37,27 @@ export default function ContactPage() {
       />
 
       <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
-        {contactLinks.map(({ icon: Icon, label, value, href, description }) => (
+        {/* Email card — address assembled client-side only, never in static HTML */}
+        <div className="block group">
+          <Card hover className="h-full">
+            <div className="w-10 h-10 rounded-full bg-accent/10 text-accent flex items-center justify-center mb-4">
+              <Mail size={18} />
+            </div>
+            <h3 className="font-semibold text-primary mb-1">Email</h3>
+            <ObfuscatedEmail className="text-xs text-accent font-mono mb-2 hover:underline block" />
+            <p className="text-sm text-text-muted leading-relaxed">
+              Best for detailed questions, collaboration ideas, opportunities, or just saying hello.
+            </p>
+          </Card>
+        </div>
+
+        {/* LinkedIn and GitHub */}
+        {otherLinks.map(({ icon: Icon, label, value, href, description }) => (
           <a
             key={label}
             href={href}
-            target={href.startsWith("mailto") ? undefined : "_blank"}
-            rel={href.startsWith("mailto") ? undefined : "noopener noreferrer"}
+            target="_blank"
+            rel="noopener noreferrer"
             className="block group"
           >
             <Card hover className="h-full transition-colors group-hover:border-accent/40">
