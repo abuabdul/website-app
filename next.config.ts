@@ -1,14 +1,17 @@
 import type { NextConfig } from "next";
 
-// Content Security Policy — restricts what the page can load.
-// 'unsafe-inline' is required by Next.js hydration and Tailwind CSS.
-// Adjust connect-src / img-src if you add third-party services later.
+const isGitHubPages = process.env.GITHUB_PAGES === "true";
+
+// Repo name — must match the GitHub repository name exactly
+const REPO = "website-app";
+
+// Content Security Policy for server-mode deployments (Vercel / Node.js).
+// Not applied on GitHub Pages — static file hosts can't set HTTP headers.
 const CSP = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
-  // Geist fonts are inlined by next/font — no external font domain needed
   "font-src 'self'",
   "connect-src 'self'",
   "frame-src 'none'",
@@ -21,18 +24,13 @@ const CSP = [
   .trim();
 
 const securityHeaders = [
-  // Prevent the page from being embedded in an iframe anywhere (clickjacking)
   { key: "X-Frame-Options", value: "DENY" },
-  // Stop browsers guessing the content type from response content
   { key: "X-Content-Type-Options", value: "nosniff" },
-  // Only send the origin (not the full URL) as the Referer header
   { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
-  // Disable browser features the site doesn't use
   {
     key: "Permissions-Policy",
     value: "camera=(), microphone=(), geolocation=(), interest-cohort=()",
   },
-  // Force HTTPS for 2 years once visited (Vercel already enforces HTTPS, belt-and-braces)
   {
     key: "Strict-Transport-Security",
     value: "max-age=63072000; includeSubDomains; preload",
@@ -41,18 +39,33 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Static export for GitHub Pages; default server mode for Vercel
+  ...(isGitHubPages && { output: "export" }),
+
+  // Prefix all routes and assets with /website-app on GitHub Pages
+  basePath: isGitHubPages ? `/${REPO}` : "",
+  assetPrefix: isGitHubPages ? `/${REPO}/` : "",
+
   images: {
     unoptimized: true,
   },
-  async headers() {
-    return [
-      {
-        // Apply security headers to every route
-        source: "/(.*)",
-        headers: securityHeaders,
-      },
-    ];
+
+  // Expose base path to client components (used by assetPath() in utils.ts)
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGitHubPages ? `/${REPO}` : "",
   },
+
+  // Security headers — only works with a server runtime, not static export
+  ...(!isGitHubPages && {
+    async headers() {
+      return [
+        {
+          source: "/(.*)",
+          headers: securityHeaders,
+        },
+      ];
+    },
+  }),
 };
 
 export default nextConfig;

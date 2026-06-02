@@ -1,5 +1,10 @@
 import type { MetadataRoute } from "next";
 
+export const dynamic = "force-static";
+
+const BASE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://abuabdul.github.io/website-app";
+
 // Bots explicitly disallowed:
 // - AI training crawlers (OpenAI, Anthropic, Google, Meta, Apple, Common Crawl, etc.)
 // - Aggressive SEO/audit crawlers that offer no indexing value
@@ -11,13 +16,13 @@ const DISALLOWED_BOTS: Extract<MetadataRoute.Robots["rules"], unknown[]> = [
   { userAgent: "ClaudeBot", disallow: ["/"] },
   { userAgent: "anthropic-ai", disallow: ["/"] },
   { userAgent: "Claude-Web", disallow: ["/"] },
-  { userAgent: "Google-Extended", disallow: ["/"] }, // Gemini / Bard training
+  { userAgent: "Google-Extended", disallow: ["/"] },
   { userAgent: "Googlebot-Image", disallow: ["/"] },
   { userAgent: "Meta-ExternalAgent", disallow: ["/"] },
   { userAgent: "Meta-ExternalFetcher", disallow: ["/"] },
   { userAgent: "Applebot-Extended", disallow: ["/"] },
-  { userAgent: "CCBot", disallow: ["/"] }, // Common Crawl (used by many AI datasets)
-  { userAgent: "Bytespider", disallow: ["/"] }, // TikTok / ByteDance
+  { userAgent: "CCBot", disallow: ["/"] },
+  { userAgent: "Bytespider", disallow: ["/"] },
   { userAgent: "Diffbot", disallow: ["/"] },
   { userAgent: "ImagesiftBot", disallow: ["/"] },
   { userAgent: "omgili", disallow: ["/"] },
@@ -39,16 +44,13 @@ const DISALLOWED_BOTS: Extract<MetadataRoute.Robots["rules"], unknown[]> = [
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
-      // Legitimate search engines — allow full crawl for SEO
       { userAgent: "Googlebot", allow: "/" },
       { userAgent: "Bingbot", allow: "/" },
       { userAgent: "DuckDuckBot", allow: "/" },
-      { userAgent: "LinkedInBot", allow: "/" }, // so link previews work
-      // All disallowed bots
+      { userAgent: "LinkedInBot", allow: "/" },
       ...DISALLOWED_BOTS,
-      // Everyone else — allow (covers smaller legitimate search engines)
       { userAgent: "*", allow: "/" },
     ],
-    sitemap: "https://abuabdul.dev/sitemap.xml",
+    sitemap: `${BASE_URL}/sitemap.xml`,
   };
 }

@@ -5,6 +5,7 @@ import { SectionHeader } from "@/components/ui/section-header";
 import { ExperienceTimeline } from "@/components/sections/experience-timeline";
 import { SkillsMatrix } from "@/components/sections/skills-matrix";
 import { resumeData } from "@/content/resume";
+import { assetPath } from "@/lib/utils";
 
 export const metadata: Metadata = {
   title: "Resume",
@@ -25,7 +26,7 @@ export default function ResumePage() {
           <p className="mt-3 text-text-muted max-w-2xl leading-relaxed">{summary}</p>
         </div>
         <a
-          href={pdfUrl}
+          href={assetPath(pdfUrl)}
           download="Abubacker_AK_Resume.pdf"
           className="flex-shrink-0 inline-flex items-center gap-2 rounded-lg font-medium transition-colors bg-primary text-white hover:bg-primary/90 h-10 px-5 text-sm"
         >

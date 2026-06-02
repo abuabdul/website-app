@@ -19,3 +19,13 @@ export function formatMonthYear(dateStr: string): string {
     month: "short",
   });
 }
+
+/**
+ * Prefix a public asset path with the base path when deployed to GitHub Pages.
+ * Use this for plain <a href> and raw string paths — Next.js <Link> and <Image>
+ * handle basePath automatically.
+ */
+export function assetPath(path: string): string {
+  const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+  return `${base}${path}`;
+}
